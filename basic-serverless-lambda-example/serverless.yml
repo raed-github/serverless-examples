@@ -1,0 +1,15 @@
+service: basic-serverless-lambda-example
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-west-2
+
+functions:
+  hello:
+    handler: src/handler.generateRandomNumber
+    events:
+      - httpApi:
+          path: /
+          method: get
